@@ -1,10 +1,15 @@
-import './styles.css'
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import ComboBox from "./ComboBox";
+import "./styles.css";
 
 export default function App() {
-  return (
-    <div className="App">
-      <h1>Hello CodeSandbox</h1>
-      <h2>Start editing to see some magic happen!</h2>
-    </div>
-  )
+	const queryClient = new QueryClient();
+
+	return (
+		<div className="App">
+			<QueryClientProvider client={queryClient}>
+				<ComboBox />
+			</QueryClientProvider>
+		</div>
+	);
 }
